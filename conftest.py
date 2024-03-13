@@ -2,25 +2,29 @@ import datetime
 import os
 import pytest
 import logging
+import allure
+import json
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
+
 def pytest_addoption(parser):
     parser.addoption("--browser", default="chrome")
     parser.addoption("--drivers", default=os.path.expanduser("C:\\webdrivers"))
     parser.addoption("--log_level", action="store", default="INFO")
-    parser.addoption("--headless", action="store_true")
+    # parser.addoption("--headless", action="store_true")
+
 
 @pytest.fixture
 def driver(request):
     browser_name = request.config.getoption("--browser")
     drivers = request.config.getoption("--drivers")
     log_level = request.config.getoption("--log_level")
-    headless = request.config.getoption("--headless")
+    # headless = request.config.getoption("--headless")
     executor_url = "https://demo-opencart.ru/"
-    
+
     logger = logging.getLogger(request.node.name)
     file_handler = logging.FileHandler(f"logs/{request.node.name}.log")
     file_handler.setFormatter(logging.Formatter("%(levelname)s %(message)s"))
@@ -28,7 +32,8 @@ def driver(request):
     logger.setLevel(level=log_level)
 
     logger.info(
-        "===> Test %s started at %s" % (request.node.name, datetime.datetime.now())
+        "===> Test %s started at %s" % (
+            request.node.name, datetime.datetime.now())
     )
 
     if browser_name == "chrome":
@@ -36,14 +41,22 @@ def driver(request):
         driver = webdriver.Chrome(options=option)
     elif browser_name == "yandex":
         options = webdriver.ChromeOptions()
-        binary_yandex_driver_file = os.path.join(drivers, 'yandexdriver\\yandexdriver.exe')
-        service = webdriver.chrome.service.Service(executable_path=binary_yandex_driver_file)
+        binary_yandex_driver_file = os.path.join(
+            drivers, 'yandexdriver\\yandexdriver.exe')
+        service = webdriver.chrome.service.Service(
+            executable_path=binary_yandex_driver_file)
         driver = webdriver.Chrome(service=service, options=options)
     elif browser_name == "firefox":
         option = FirefoxOptions()
         driver = webdriver.Firefox(options=option)
     else:
         raise Exception("Driver not supported")
+
+    allure.attach(
+        name=driver.session_id,
+        body=driver.current_url,
+        attachment_type=allure.attachment_type.JSON,
+    )
 
     driver.get(executor_url)
     driver.log_level = log_level
@@ -55,7 +68,8 @@ def driver(request):
     def fin():
         driver.quit()
         logger.info(
-            "===> Test %s finished at %s" % (request.node.name, datetime.datetime.now())
+            "===> Test %s finished at %s" % (
+                request.node.name, datetime.datetime.now())
         )
 
     request.addfinalizer(fin)
