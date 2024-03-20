@@ -1,20 +1,15 @@
-product = ("div.container:nth-child(4) div.row div.col-sm-12 div.row:nth-child(4) "
-           "div.product-layout.col-lg-3.col-md-3.col-sm-6.col-xs-12:nth-child({}) div.product-thumb.transition div.{}")
-
-product_element = "image > a:nth-child(1)"
-product_button_buy = "button-group > button:nth-child(1)"
-product_button_favorite = "button-group > button:nth-child(2)"
-
-review_mark_cs = ("div.container:nth-child(4) div.row div.col-sm-12 div.row div.col-sm-8 div.tab-content "
-                  "div.tab-pane.active:nth-child(3) form.form-horizontal div.form-group.required:nth-child(5) "
-                  "div.col-sm-12 > input:nth-child({})")
+product = ("//body/main[1]/div[2]/div[1]/div[1]/div[2]/div[{}]/div[1]/div[2]/form[1]/div[1]/button[{}]")
+review_mark_cs = ("div.container:nth-child(2) div.row div.col div.row.mb-3:nth-child(1) div.tab-content:nth-child(4) div.tab-pane.fade.mb-4.active.show:nth-child(3) form:nth-child(1) div.row.mb-3.required:nth-child(5) div:nth-child(2) > input.form-check-input:nth-child({})")
 
 firstname_text = "Ratmir"
 lastname_text = "Ashimov"
 email_text = "ratmir.yuldashev28@mail.ru"
-telephone_text = "89096895085"
 password_text = "UwUPassword"
 review_text = "kodfjlkfajfasss nice review"
 
-input_texts = [firstname_text, lastname_text, email_text,
-               telephone_text, password_text, password_text]
+input_texts = [firstname_text, lastname_text, email_text, password_text]
+
+admin_login_text = "user"
+admin_password_text = "bitnami"
+
+new_categories = "Devices"

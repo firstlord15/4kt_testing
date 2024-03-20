@@ -1,0 +1,6 @@
+[32mINFO    [0m test_forth_dop_task:conftest.py:30 ===> Test test_forth_dop_task started at 2024-03-18 18:23:40.796436
+[32mINFO    [0m test_forth_dop_task:conftest.py:56 Browser chrome started
+[32mINFO    [0m test_forth_dop_task:BasePage.py:81 MainPage: Clicking element 'DROPDOWN_TELEPHONES'
+[32mINFO    [0m test_forth_dop_task:BasePage.py:81 MainPage: Clicking element 'PRODUCT_IPHONE'
+[32mINFO    [0m test_forth_dop_task:BasePage.py:81 ProductPage: Clicking element 'BUTTON_BUY'
+[32mINFO    [0m test_forth_dop_task:conftest.py:60 ===> Test test_forth_dop_task finished at 2024-03-18 18:23:55.409812

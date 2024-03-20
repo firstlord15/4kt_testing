@@ -1,0 +1,20 @@
+[32mINFO    [0m test_forth_task:conftest.py:30 ===> Test test_forth_task started at 2024-03-18 18:21:37.863288
+[32mINFO    [0m test_forth_task:conftest.py:56 Browser chrome started
+[32mINFO    [0m test_forth_task:BasePage.py:81 MainPage: Clicking element 'BUTTON_REGLOG'
+[32mINFO    [0m test_forth_task:BasePage.py:81 MainPage: Clicking element 'BUTTON_REGISTER'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'INPUT_FIRSTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:96 RegistrationPage: Clearing input 'INPUT_FIRSTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:102 RegistrationPage: Writing 'Ratmir' in input 'INPUT_FIRSTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'INPUT_LASTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:96 RegistrationPage: Clearing input 'INPUT_LASTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:102 RegistrationPage: Writing 'Ashimov' in input 'INPUT_LASTNAME'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'INPUT_EMAIL'
+[32mINFO    [0m test_forth_task:BasePage.py:96 RegistrationPage: Clearing input 'INPUT_EMAIL'
+[32mINFO    [0m test_forth_task:BasePage.py:102 RegistrationPage: Writing 'ratmir.yuldashev28@mail.ru' in input 'INPUT_EMAIL'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'INPUT_PASSWORD'
+[32mINFO    [0m test_forth_task:BasePage.py:96 RegistrationPage: Clearing input 'INPUT_PASSWORD'
+[32mINFO    [0m test_forth_task:BasePage.py:102 RegistrationPage: Writing 'UwUPassword' in input 'INPUT_PASSWORD'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'BUTTON_NEWSLETTER'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'BUTTON_PRIVACY_POLICY'
+[32mINFO    [0m test_forth_task:BasePage.py:81 RegistrationPage: Clicking element 'BUTTON_NEXT'
+[32mINFO    [0m test_forth_task:conftest.py:60 ===> Test test_forth_task finished at 2024-03-18 18:22:22.813581

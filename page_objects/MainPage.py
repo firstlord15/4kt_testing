@@ -5,37 +5,36 @@ import time
 
 
 class MainPage(BasePage):
-    INPUT_SEARCH = (By.CSS_SELECTOR, "div.container div.row div.col-sm-5 div.input-group > input.form-control.input-lg")
-    BUTTON_CART_TOTAL = (By.CSS_SELECTOR, "#cart-total")
-    BUTTON_CART = (By.XPATH, "//body/nav[@id='top']/div[1]/div[1]/ul[1]/li[4]/a[1]")
-    BUTTON_REGLOG = (
-        By.CSS_SELECTOR, "div.container div.nav.pull-right ul.list-inline li.dropdown:nth-child(2) > a.dropdown-toggle"
-    )
-    BUTTON_REGISTER = (By.LINK_TEXT, "Регистрация")
-    BUTTON_LOGIN = (By.LINK_TEXT, "Авторизация")
-    BUTTON_HOME = (By.LINK_TEXT, "Интернет магазин Opencart")
+    INPUT_SEARCH = (By.XPATH, "//header/div[1]/div[1]/div[2]/div[1]/input[1]")
+    BUTTON_CART_TOTAL = (By.XPATH, "//body/nav[@id='top']/div[1]/div[2]/ul[1]/li[4]")
+    BUTTON_CART = (By.CSS_SELECTOR, "#header-cart")
+    BUTTON_REGLOG = (By.XPATH, "//body/nav[@id='top']/div[1]/div[2]/ul[1]/li[2]")
+    BUTTON_REGISTER = (By.LINK_TEXT, "Register")
+    BUTTON_LOGIN = (By.LINK_TEXT, "Login")
 
-    DROPDOWN_TABLET = (By.LINK_TEXT, "Планшеты")
+    DROPDOWN_TABLET = (By.LINK_TEXT, "Tablets")
     PRODUCT_TABLET = (By.LINK_TEXT, "Samsung Galaxy Tab 10.1")
 
-    DROPDOWN_TELEPHONE_HTC = (By.LINK_TEXT, "Телефоны")
-    PRODUCT_TELEPHONE_HTC = (By.LINK_TEXT, "HTC Touch HD")
+    DROPDOWN_TELEPHONES = (By.LINK_TEXT, "Phones & PDAs")
+    PRODUCT_IPHONE = (By.LINK_TEXT, "iPhone")
 
-    DROPDOWN_PC = (By.LINK_TEXT, "Компьютеры")
+    DROPDOWN_PC = (By.LINK_TEXT, "Desktops")
     LI_PC = (By.LINK_TEXT, "PC (0)")
 
     PRODUCTS = [
-        (By.CSS_SELECTOR, product.format(str(i), product_element))
-        for i in range(1, 5)
+        (By.LINK_TEXT, "MacBook"),
+        (By.LINK_TEXT, "iPhone"),
+        (By.LINK_TEXT, 'Apple Cinema 30"'),
+        (By.LINK_TEXT, "Canon EOS 5D"),
     ]
-    
+
     PRODUCTS_BUTTON_BUY = [
-        (By.CSS_SELECTOR, product.format(str(i), product_button_buy))
+        (By.XPATH, product.format(str(i), "1"))
         for i in range(1, 5)
     ]
 
     PRODUCTS_BUTTON_FAVORITE = [
-        (By.CSS_SELECTOR, product.format(str(i), product_button_favorite))
+        (By.XPATH, product.format(str(i), "2"))
         for i in range(1, 5)
     ]
 
@@ -43,23 +42,21 @@ class MainPage(BasePage):
 
     def click_product(self, index: int):
         self.click(self.PRODUCTS[index])
-        time.sleep(3)
+        time.sleep(1)
         return self
-    
+
     def click_products_buy(self, count):
         for i in count:
             self.click(self.PRODUCTS_BUTTON_BUY[i])
-        
-        time.sleep(3)
+        time.sleep(1)
         return self
 
     def open_registration(self):
         self.click(self.BUTTON_REGLOG)
         self.click(self.BUTTON_REGISTER)
-
-        time.sleep(3)
+        time.sleep(1)
         return self
-    
+
     def click_search(self, text: str):
         self._input(self.INPUT_SEARCH, text)
         self.enter()

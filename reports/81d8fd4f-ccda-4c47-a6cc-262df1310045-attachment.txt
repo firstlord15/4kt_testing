@@ -1,0 +1,8 @@
+[32mINFO    [0m test_first_task:conftest.py:30 ===> Test test_first_task started at 2024-03-18 18:20:32.953615
+[32mINFO    [0m test_first_task:conftest.py:56 Browser chrome started
+[32mINFO    [0m test_first_task:BasePage.py:81 MainPage: Clicking element 'PRODUCTS[0]'
+[32mINFO    [0m test_first_task:BasePage.py:81 ProductPage: Clicking element 'MAIN_PICTURE'
+[32mINFO    [0m test_first_task:BasePage.py:42 Press 'Right'
+[32mINFO    [0m test_first_task:BasePage.py:42 Press 'Right'
+[32mINFO    [0m test_first_task:BasePage.py:42 Press 'Right'
+[32mINFO    [0m test_first_task:conftest.py:60 ===> Test test_first_task finished at 2024-03-18 18:20:55.991795

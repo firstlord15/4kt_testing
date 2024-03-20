@@ -1,0 +1,4 @@
+[32mINFO    [0m test_first_dop_task:conftest.py:30 ===> Test test_first_dop_task started at 2024-03-18 18:22:45.350391
+[32mINFO    [0m test_first_dop_task:conftest.py:56 Browser chrome started
+[32mINFO    [0m test_first_dop_task:BasePage.py:81 MainPage: Clicking element 'PRODUCTS_BUTTON_FAVORITE[3]'
+[32mINFO    [0m test_first_dop_task:conftest.py:60 ===> Test test_first_dop_task finished at 2024-03-18 18:22:55.044510

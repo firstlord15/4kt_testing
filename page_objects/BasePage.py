@@ -26,14 +26,28 @@ class BasePage:
     def escape(self):
         ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
         self.logger.info("Press 'Escape'")
-        time.sleep(2)
+        time.sleep(1)
         return self
 
     @allure.step
     def enter(self):
         ActionChains(self.driver).send_keys(Keys.ENTER).perform()
         self.logger.info("Press 'Enter'")
-        time.sleep(2)
+        time.sleep(1)
+        return self
+    
+    @allure.step
+    def rightArrow(self):
+        ActionChains(self.driver).send_keys(Keys.CONTROL).send_keys(Keys.ARROW_RIGHT).perform()
+        self.logger.info("Press 'Right'")
+        time.sleep(1)
+        return self
+    
+    @allure.step
+    def downArrow(self):
+        ActionChains(self.driver).send_keys(Keys.CONTROL).send_keys(Keys.ARROW_DOWN).perform()
+        self.logger.info("Press 'Down'")
+        time.sleep(1)
         return self
 
     @staticmethod
@@ -52,31 +66,37 @@ class BasePage:
             elif value == element:
                 return name
         return element
-
+    
+    def home(self):
+        self.click('(By.CSS_SELECTOR, "#logo")')
+    
     @allure.step
     def click(self, element_locator):
         try:
             time.sleep(1)
             element = self.is_tuple(element_locator)
+            element_name = self.element_name(element_locator)
+            ActionChains(self.driver).move_to_element(element).perform()
             self.wait.until(EC.element_to_be_clickable(element)).click()
-            # ActionChains(self.driver).move_to_element(element).click().perform()
-            self.logger.info(f"{self.class_name}: Clicking element '{
-                             self.element_name(element_locator)}'")
-            time.sleep(1)
-        except TimeoutError:
-            allure.attach(name="screenshot",
-                          body=self.driver.get_screenshot_as_png())
+            self.logger.info(f"{self.class_name}: Clicking element '{element_name}'")
+            time.sleep(0.5)
+        except Exception:
+            allure.attach(name="screenshot", body=self.driver.get_screenshot_as_png())
+            self.logger.error(f"{self.class_name}: Error when clicking element '{element_name}': {element_locator}")
             raise AssertionError(f"Ошибка при выполнении click")
 
         return self
 
     @allure.step
-    def write(self, element_locator, value):
+    def write(self, element_locator, value, clearing = True):
         try:
             element = self.is_tuple(element_locator)
             element_name = self.element_name(element_locator)
-            element.clear()
-            self.logger.info(f"{self.class_name}: Clearing input '{element_name}'")
+            
+            if clearing:
+                element.clear()
+                self.logger.info(f"{self.class_name}: Clearing input '{element_name}'")
+
             result_text = value[randint(0, len(value) - 1)] if isinstance(value, list) else value
 
             for letter in result_text:
@@ -84,16 +104,17 @@ class BasePage:
                 element.send_keys(letter)
             self.logger.info(f"{self.class_name}: Writing '{
                 result_text}' in input '{element_name}'")
-            time.sleep(1)
-        except TimeoutError:
+        except Exception:
             allure.attach(name="screenshot", body=self.driver.get_screenshot_as_png())
+            self.logger.error(f"{self.class_name}: Error when writing element '{element_name}': {element_locator}")
             raise AssertionError("Ошибка при выполнении write")
 
         return self
 
-    def _input(self, element, value):
+    def _input(self, element, value, clear = True, timing=0.1):
         self.click(element)
-        self.write(element, value)
-        time.sleep(2)
+        time.sleep(timing)
+        self.write(element, value, clearing=clear)
+        time.sleep(0.5)
 
         return self

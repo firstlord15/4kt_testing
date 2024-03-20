@@ -1,0 +1,13 @@
+[32mINFO    [0m test_fifth_dop_task:conftest.py:30 ===> Test test_fifth_dop_task started at 2024-03-18 18:23:59.483167
+[32mINFO    [0m test_fifth_dop_task:conftest.py:56 Browser chrome started
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 MainPage: Clicking element 'PRODUCTS[0]'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 ProductPage: Clicking element 'BUTTON_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 ProductPage: Clicking element 'INPUT_NAME_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:96 ProductPage: Clearing input 'INPUT_NAME_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:102 ProductPage: Writing 'Ratmir' in input 'INPUT_NAME_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 ProductPage: Clicking element 'INPUT_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:96 ProductPage: Clearing input 'INPUT_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:102 ProductPage: Writing 'kodfjlkfajfasss nice review' in input 'INPUT_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 ProductPage: Clicking element '('css selector', 'input.form-check-input:nth-child(4)')'
+[32mINFO    [0m test_fifth_dop_task:BasePage.py:81 ProductPage: Clicking element 'BUTTON_NEXT_REVIEW'
+[32mINFO    [0m test_fifth_dop_task:conftest.py:60 ===> Test test_fifth_dop_task finished at 2024-03-18 18:24:33.018504
